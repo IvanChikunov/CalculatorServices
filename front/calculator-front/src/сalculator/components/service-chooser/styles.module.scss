@@ -1,0 +1,16 @@
+.servicesSwitcherGroup {
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+  margin-top: 10px;
+
+  .buttonSwitcher {
+    height: 30px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+
+    &.selected {
+      background-color: #52ed93;
+    }
+  }
+}

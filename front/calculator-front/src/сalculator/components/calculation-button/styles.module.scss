@@ -1,0 +1,21 @@
+.calculationButton {
+  width: 80px;
+  height: 40px;
+  font-size: large;
+
+  &.primary {
+    background-color: #87ceeb;
+
+    &:hover {
+      background-color: #69a0b6;
+    }
+  }
+
+  &.secondary {
+    background-color: #d3d3d3;
+
+    &:hover {
+      background-color: #a5a5a5;
+    }
+  }
+}

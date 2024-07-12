@@ -1,0 +1,12 @@
+.editableInput {
+  margin-left: 30%;
+  width: 350px;
+  margin-top: 170px;
+  display: flex;
+  flex-direction: column;
+
+  input {
+    height: 20px;
+    margin: 2px;
+  }
+}
