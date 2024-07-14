@@ -4,7 +4,5 @@ export const checkCalculatingExpression = (
   expression: string
 ) => {
   let x = /^[\d()+\-*\/\s]+$/;
-  console.log(x.test(expression));
-  console.log(expression);
-  return true;
+  return x.test(expression);
 };

@@ -4,7 +4,7 @@ import styles from "./styles.module.scss";
 
 interface EditableInputProps {
   expression: string;
-  result?: number;
+  result?: number | string;
   onChange: (value: string) => void;
 }
 

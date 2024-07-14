@@ -9,7 +9,7 @@ namespace calculator_back.Controllers
     public class CalculationController : ControllerBase
     {
         ICalculatorsFactory _calculatorsFactory;
-        public CalculationController(ICalculatorsFactory calculatorsFactory )
+        public CalculationController(ICalculatorsFactory calculatorsFactory)
         {
             _calculatorsFactory = calculatorsFactory;
         }
@@ -17,9 +17,16 @@ namespace calculator_back.Controllers
         [HttpGet]
         public string CalculateExpression(string expression, CalculationServicesEnum type)
         {
-            var service = _calculatorsFactory.GetServiceByType(type);
-            var result = service.Calculate(expression);
-            return result;
+            try
+            {
+                var service = _calculatorsFactory.GetServiceByType(type);
+                var result = service.Calculate(expression);
+                return result;
+            }
+            catch (Exception ex)
+            {
+                return $"Something went wrong: ${ex.Message}";
+            }
         }
     }
 }

@@ -11,7 +11,7 @@ import { server } from "./consts/api-consts";
 
 const Calculator = () => {
   const [expression, setExpression] = useState<string>("");
-  const [calculationResult, setCalculationResult] = useState<number>();
+  const [calculationResult, setCalculationResult] = useState<number | string>();
   const [choosedCalculator, setChoosedCalculator] = useState<number>(0);
 
   const addSymbol = (symbol: string) => {
@@ -23,11 +23,17 @@ const Calculator = () => {
   };
 
   const calculate = () => {
-    axios
-      .get(
-        `${server}api/Calculation?expression=${expression}&type=${choosedCalculator}`
-      )
-      .then((result) => setCalculationResult(result.data));
+    if (checkCalculatingExpression(expression))
+      axios
+        .get(
+          `${server}api/Calculation?expression=${encodeURIComponent(
+            expression
+          )}&type=${choosedCalculator}`
+        )
+        .then((result) => setCalculationResult(result.data));
+    else {
+      setCalculationResult("Неверное выражение");
+    }
   };
 
   return (
